@@ -1,0 +1,7 @@
+# Crear archivos de ruta con contenido minimo
+for f in routes/products.js routes/cart.js routes/checkout.js; do
+  echo "const express = require('express');
+const router  = express.Router();
+// Rutas por implementar
+module.exports = router;" > $f
+done

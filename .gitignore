@@ -39,6 +39,11 @@ build/Release
 
 # Dependency directories
 node_modules/
+.env
+ca.pem
+*.log
+.DS_Store
+
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
