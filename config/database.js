@@ -11,7 +11,7 @@ function getSslConfig() {
   if (fs.existsSync(certPath)) {
     return { ssl: { ca: fs.readFileSync(certPath) } };
   }
-  return { ssl: { rejectUnauthorized: false } }; // ← only line changed
+  return {};
 }
 
 const sequelize = new Sequelize(
