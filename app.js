@@ -31,19 +31,6 @@ app.use(session({
   cookie: { maxAge: 3600000 }
 }));
 
-/*
-app.get('/', (req, res) => {
-  res.send(`
-    <h1>Hello World - Cristian Andrade says hi </h1>
-    <p>La aplicacion funciona en Render.</p>
-    <p>Puerto: ${port} | Entorno: ${process.env.NODE_ENV || 'development'}</p>
-  `);
-});
-
-app.listen(port, () => {
-  console.log(`Servidor corriendo en puerto ${port}`);
-}); */
-
 // Middleware: carrito vacio en sesion si no existe
 app.use((req, res, next) => {
   if (!req.session.cart) {
@@ -60,6 +47,7 @@ app.get('/', (req, res) => {
     Puerto: ${port} | Entorno: ${process.env.NODE_ENV || 'development'}
   `);
 });
+
 // app.use('/',         productRoutes);
 app.use('/cart',     cartRoutes);
 app.use('/checkout', checkoutRoutes);

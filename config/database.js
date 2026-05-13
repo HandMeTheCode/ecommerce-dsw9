@@ -5,13 +5,13 @@ const path = require('path');
 
 function getSslConfig() {
   if (process.env.DB_SSL_CA_BASE64) {
-    return { ssl: { ca: Buffer.from(process.env.DB_SSL_CA_BASE64, 'base64').toString('utf8'), rejectUnauthorized: false } };
+    return { ssl: { ca: Buffer.from(process.env.DB_SSL_CA_BASE64, 'base64').toString('utf8') } };
   }
   const certPath = path.join(__dirname, '..', 'ca.pem');
   if (fs.existsSync(certPath)) {
-    return { ssl: { ca: fs.readFileSync(certPath), rejectUnauthorized: false } };
+    return { ssl: { ca: fs.readFileSync(certPath) } };
   }
-  return { ssl: { rejectUnauthorized: false } };
+  return {};
 }
 
 const sequelize = new Sequelize(
